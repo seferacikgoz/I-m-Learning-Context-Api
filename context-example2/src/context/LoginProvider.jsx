@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import { useState } from "react";
 import { createContext } from "react";
 
@@ -12,9 +13,16 @@ const LoginProvider = ({children}) => {
 
   const values = {user, setUser};
 
-  return <LoginContext.Provider value={values}>
+  return ( <LoginContext.Provider value={values}>
     {children}
   </LoginContext.Provider>
+  )
 }
+
+//! Consuming Custom Hook
+export const useLoginContext = () => {
+  return useContext(LoginContext)
+}
+
 
 export default LoginProvider
