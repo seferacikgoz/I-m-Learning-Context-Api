@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useContext } from "react";
 import { LoginContext } from "../context/LoginContext";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   //! local state
@@ -12,8 +13,11 @@ const Login = () => {
   //!Consuming LoginContext
   const {user, setUser} = useContext(LoginContext);
 
+  const navigate = useNavigate()
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    navigate()
   };
   console.log(user);
 
