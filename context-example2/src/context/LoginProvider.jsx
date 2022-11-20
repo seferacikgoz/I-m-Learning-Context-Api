@@ -1,24 +1,20 @@
-import { useContext } from "react";
 import { useState } from "react";
 import { createContext } from "react";
 
-//! 1-) Creating Login Context
+//! 1- Creating Login Context
 export const LoginContext = createContext();
 
-//! 2-) Providing
-const LoginProvider = ({ children }) => {
-  // props.children
-  const [user, setUser] = useState({ email: "", password: "" });
+//! 2- Providing 
 
-  const values = { user, setUser };
-  return (
-    <LoginContext.Provider value={values}>{children}</LoginContext.Provider>
-  );
-};
+const LoginProvider = ({children}) => {
+  /* props.children */
+  const [user, setUser] = useState({email: "", password: ""})
 
-//! Consuming Custom Hook
-export const useLoginContext = () => {
-  return useContext(LoginContext);
-};
+  const values = {user, setUser};
 
-export default LoginProvider;
+  return <LoginContext.Provider value={values}>
+    {children}
+  </LoginContext.Provider>
+}
+
+export default LoginProvider
