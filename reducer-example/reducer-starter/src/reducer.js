@@ -7,9 +7,11 @@ export const initialState = {
 export const reducer = (state, action) => {
   switch (action.type) {
     case "START":
-      break;
+        return{...state, loading:true};     
     case "SUCCESS":
+        return{...state, catImage:action.payload,error:"", loading:true};  
     case "FAIL":
+        return{...state,error:action.payload, loading:true};  
     default:
       break;
   }
